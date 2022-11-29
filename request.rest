@@ -1,0 +1,27 @@
+
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{   
+    "name": "José",
+    "email": "jose@email.com",
+    "password": "jose456"
+}
+
+###
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{   
+    "name": "Ipad Air",
+    "price": 8399.90,
+    "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-select-cell-purple-202203?wid=940&hei=1112&fmt=png-alpha&.v=1645066504390"
+}
+
+###
+GET http://localhost:3003/products?order=asc&search=air
+Content-Type: application/json
