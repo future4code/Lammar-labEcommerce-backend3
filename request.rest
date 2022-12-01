@@ -17,11 +17,29 @@ POST http://localhost:3003/products
 Content-Type: application/json
 
 {   
-    "name": "Ipad Air",
-    "price": 8399.90,
-    "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-select-cell-purple-202203?wid=940&hei=1112&fmt=png-alpha&.v=1645066504390"
+    "name": "Airpods",
+    "price": 950,
+    "image_url": "https://imgs.casasbahia.com.br/12731485/1xg.jpg?imwidth=500"
 }
 
 ###
 GET http://localhost:3003/products?order=asc&search=air
+Content-Type: application/json
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{   
+    "user_id": "1",
+    "product_id": "3",
+    "quantity": 1
+}
+
+###
+GET http://localhost:3003/users/4/purchases
+Content-Type: application/json
+
+###
+GET http://localhost:3003/usersModified
 Content-Type: application/json

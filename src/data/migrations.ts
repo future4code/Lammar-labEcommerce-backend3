@@ -16,6 +16,15 @@ const createTables = () => connection
          price FLOAT NOT NULL,
          image_url VARCHAR(255) NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS labecommerce_purchases (
+         id VARCHAR(255) NOT NULL PRIMARY KEY,
+         user_id VARCHAR(255) NOT NULL,
+         product_id VARCHAR(255) NOT NULL,
+         quantity FLOAT NOT NULL,
+         total_price FLOAT NOT NULL,
+         FOREIGN KEY (user_id) REFERENCES labecommerce_users(id),
+         FOREIGN KEY (product_id) REFERENCES labecommerce_products(id)
+      );
    `)
    .then(() => { console.log("Tabelas criadas!") })
    .catch(printError)
