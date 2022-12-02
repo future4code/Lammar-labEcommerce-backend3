@@ -10,20 +10,24 @@ export default async function getAllUsersModified (req: Request, res: Response) 
         const purchases = await connection("labecommerce_purchases")
 
         const usersModified: userModified[] = []
+        
+        users.map ((user) => {
+            usersModified.push ({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                password: user.password,
+                purchases: []
+            })
+        })
 
-        for(let x=0; x<purchases.length; x++) {
-            for(let i=0; i<users.length; i++) {
-                if (purchases[x].user_id === users[i].id) {
-                    usersModified.push ({
-                        id: users[i].id,
-                        name: users[i].name,
-                        email: users[i].email,
-                        password: users[i].password,
-                        purchases: purchases[x]
-                    })
+        purchases.map((purchase) => {
+            for (let i=0; i<usersModified.length; i++) {
+                if(purchase.user_id === usersModified[i].id) {
+                    usersModified[i].purchases.push(purchase)
                 }
             }
-        }
+        })
 
         res.status(200).send(usersModified)
     }

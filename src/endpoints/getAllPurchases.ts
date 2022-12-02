@@ -11,6 +11,15 @@ export default async function getAllPurchasesByUser (req: Request, res: Response
             throw new Error ("Necessário inserir o user_id.")
         }
 
+        const users = await connection("labecommerce_users")
+
+        const userExists = users.find((user)=> user_id === user.id)
+
+        if(typeof userExists === "undefined") {
+            statusCode = 422
+            throw new Error ("O user_id inserido não existe.")
+        }
+        
         const purchases = await connection("labecommerce_purchases")
         .where("user_id", "like", `${user_id}`)
 

@@ -11,12 +11,16 @@ export default async function getAllProducts (req: Request, res: Response) : Pro
             order = "ASC"
         }
 
+        if (order && order.toUpperCase() !== "ASC" && order.toUpperCase() !== "DESC") {
+            order = "ASC"
+        }
+
         if (!search) {
             search ="%"
         }
 
         const products = await connection("labecommerce_products")
-        .orderBy("id", order)
+        .orderBy("name", order)
         .where("name", "like", `%${search}%`)
 
 

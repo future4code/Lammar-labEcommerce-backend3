@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3003/products?order=asc&search=air
+GET http://localhost:3003/products?order=desc&search=air
 Content-Type: application/json
 
 ###
@@ -37,9 +37,9 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3003/users/4/purchases
+GET http://localhost:3003/users/1/purchases
 Content-Type: application/json
 
 ###
-GET http://localhost:3003/usersModified
+GET http://localhost:3003/localhost:3003/usersModified
 Content-Type: application/json

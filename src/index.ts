@@ -3,7 +3,7 @@ import createProduct from "./endpoints/createProduct";
 import createPurchase from "./endpoints/createPurchase";
 import createUser from "./endpoints/createUser";
 import getAllProducts from "./endpoints/getAllProducts";
-import getAllPurchasesByUser from "./endpoints/getAllPurchasesByUser";
+import getAllPurchasesByUser from "./endpoints/getAllPurchases";
 import getAllUsers from "./endpoints/getAllUsers";
 import getAllUsersModified from "./endpoints/getAllUsersModified";
 
